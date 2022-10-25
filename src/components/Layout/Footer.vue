@@ -4,11 +4,11 @@
           <div class="container-opening-hours">
               <h5>Opening Hours</h5>
               <div class="d-flex align-items-baseline">
-                <!-- <font-icon class="icon" icon="calendar" /> -->
+                <font-icon class="icon" icon="calendar" />
                 <p class="mb-1 ms-2"> {{ info.opening_days }}</p>
               </div>
               <div class="d-flex align-items-baseline">
-                <!-- <font-icon class="icon" icon="clock" /> -->
+                <font-icon class="icon" icon="clock" />
                 <p class="mb-1 ms-2"> {{ info.opening_hours }}</p>
               </div>
           </div>
@@ -24,11 +24,11 @@
           <div>
               <h5>Contact us</h5>
               <div class="d-flex align-items-baseline">
-                <!-- <font-icon :icon="{ prefix: 'fas', iconName: 'envelope' }" /> -->
+                <font-icon :icon="{ prefix: 'fas', iconName: 'envelope' }" />
                 <p class="mb-1 ms-2">{{ info.email }}</p>
               </div>
               <div class="d-flex align-items-baseline">
-                <!-- <font-icon :icon="{ prefix: 'fas' , iconName: 'phone'}" /> -->
+                <font-icon :icon="{ prefix: 'fas' , iconName: 'phone'}" />
                 <p class="mb-1 ms-2">{{ info.phone }}</p>
               </div>
           </div>
@@ -50,7 +50,7 @@
         </ul>
 
         <!-- Social Medias -->
-        <!-- <div class="social_media d-flex justify-content-center mb-4">
+        <div class="social_media d-flex justify-content-center mb-4">
           <div
             v-for="social in socials"
             :key="social.id"
@@ -67,11 +67,11 @@
               />
             </a>
           </div>
-        </div>  -->
+        </div> 
       </div> 
 
       <!-- Navigation menu for mobile -->
-      <!-- <section class="navbar-bottom navbar-expand d-block d-sm-none">
+      <section class="navbar-bottom navbar-expand d-block d-sm-none">
         <ul class="navbar-nav d-flex justify-content-around">
           <li class="nav-item text-center">
             <router-link to="/" class="nav-link" aria-current="page">
@@ -98,7 +98,7 @@
             </router-link>
           </li>
         </ul>
-      </section> -->
+      </section>
 
        <div class="auther">
         <p class="mb-0 pb-2">Copyright by {{ info.website_name }} {{ y }}.  All rights reserved.</p>

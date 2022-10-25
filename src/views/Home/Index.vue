@@ -24,18 +24,6 @@
             </div>
           </div>
         </div>
-        <!-- <div class="d-flex justify-content-center flex-column align-items-center bg-dark"
-        v-for="(service , index) in services" :key="index">
-            <img
-              :src="`/storage/homepage/icons/${service.image}`"
-              class="card-img"
-              width="100%" height="auto"
-            >
-            <div class="text-white">
-            <h4>{{ service.name }}</h4>
-            <p>{{ service.description}}</p>
-          </div>
-        </div> -->
       </div>
     </section>
 

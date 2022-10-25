@@ -1,15 +1,3 @@
-// import { createApp } from 'vue'
-// import App from './App.vue'
-// import router from './router'
-
-// import './assets/main.css'
-
-// const app = createApp(App)
-
-// app.use(router)
-
-// app.mount('#app')
-
 import { createApp } from 'vue'
 import App from './App.vue'
 // import mitt from 'mitt'
@@ -40,14 +28,12 @@ library.add(faMagnifyingGlass ,faFacebook, faInstagram, faTiktok, faTwitter, faH
 
 // import PerfectScrollbar from 'vue3-perfect-scrollbar'
 
-const app = createApp(App)
+const app = createApp(App).component("font-icon", FontAwesomeIcon)
 // app.config.globalProperties.emitter = emitter
 
 // app.component('layout', Layout)
 // app.component('dashboard', Dashboard)
 // app.component('page-not-found', PageNotFound)
-
-app.component('font-icon', FontAwesomeIcon)
 
 app.use(router)
 // app.use(store)

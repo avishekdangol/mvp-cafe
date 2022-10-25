@@ -35,7 +35,7 @@
         </ul>
       </div>
 
-      <!-- <div class="wrapper-form">
+      <div class="wrapper-form">
         <font-icon 
           class="search-icon" 
           :icon="showSearchIcon ? 'magnifying-glass' : 'times'" 
@@ -51,7 +51,7 @@
             aria-label="Search"
           >
         </form>
-      </div> -->
+      </div>
     </div>
   </nav>
 </template>

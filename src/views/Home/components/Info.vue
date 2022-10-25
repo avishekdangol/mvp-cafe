@@ -13,7 +13,6 @@
 </template>
 
 <script>
-import { ref } from 'vue'
 
 export default {
   setup() {
@@ -74,7 +73,6 @@ export default {
     justify-content: center;
 
     p{
-      text-indent: 4px;
       margin-top: 60px;
       width: 80%;
     }
