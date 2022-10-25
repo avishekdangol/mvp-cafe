@@ -215,6 +215,11 @@ export default {
   object-fit: fill;
 }
 /* special items */
+.special-items {
+  height: 430px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
 .special-items h3{
   align-self: flex-start;
   margin: 3rem 0 3rem 0;
@@ -235,11 +240,15 @@ export default {
 <style>
 .swiper {
   width: 100%;
-  height: 100%;
+  height: auto;
   overflow: visible;
 }
 .swiper-pagination {
   bottom: -30px !important;
+}
+.swiper-pagination-bullet {
+  width: 12px !important;
+  height: 12px !important;
 }
 .swiper-slide {
   background-position: center;
@@ -273,16 +282,6 @@ export default {
   height: 100%;
   padding-top: 40px;
 }
-/* .swiper-slide .inner-card .front,
-.swiper-slide .inner-card .back {
-  position: absolute;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  overflow: hidden;
-}
-.swiper-slide .inner-card .back {
-  transform: rotateY(180deg);
-} */
 .swiper-slide .inner-card:hover .specials-img {
   transform: scale(1.1);
   filter: blur(2px);
@@ -294,4 +293,5 @@ export default {
   transition: all 0.3s ease-in;
 }
 </style>
+
 
