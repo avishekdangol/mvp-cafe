@@ -282,6 +282,7 @@ export default {
   height: 100%;
   padding-top: 40px;
 }
+
 .swiper-slide .inner-card:hover .specials-img {
   transform: scale(1.1);
   filter: blur(2px);
