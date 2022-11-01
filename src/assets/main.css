@@ -1,5 +1,5 @@
-/* // Fonts */
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+/* Fonts */
+@import './fonts.css';
 
 /* Variables */
 @import './variables.css';
@@ -73,11 +73,21 @@ html ,
   background-color: #957250;
   color: #f1f1f1;
  }
+.bg-gold {
+  background-color: #ff9900 !important;
+  color: #fafaf6;
+}
 .muted {
   opacity: 0.5;
 }
 .grayscale {
   filter: grayscale(100%);
+}
+
+/* Borders */
+.border-gold {
+  border: solid;
+  border-color: #ff9900 !important;
 }
 
 /* // scrollbar */
@@ -103,6 +113,9 @@ html ,
   flex-flow: column;
   align-items: center;
   justify-content: center;
+}
+.z-1 {
+  z-index: 1;
 }
 
 /* // Helpers */

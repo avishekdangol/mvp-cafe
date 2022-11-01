@@ -1,0 +1,11 @@
+/* // Fonts */
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+@font-face {
+  font-family: Lunar;
+  src: url('../fonts/Lunar.ttf');
+}
+@font-face {
+  font-family: Heart;
+  src: url('../fonts/Heart.ttf');
+}

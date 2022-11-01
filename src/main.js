@@ -15,10 +15,10 @@ import router from './vue-router/router'
 // awesomefont icon
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faMagnifyingGlass ,faHome, faMugHot, faCircleInfo, faEnvelope , faCalendar , faClock , faPhone, faMapLocation, faTimes, faSignOut, faTachometer, faCheck, faPlus, faEdit, faRefresh, faTruck, faCashRegister, faUpload} from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass ,faHome, faMugHot, faCircleInfo, faEnvelope , faCalendar , faClock , faPhone, faMapLocation, faTimes, faSignOut, faTachometer, faCheck, faPlus, faEdit, faRefresh, faTruck, faCashRegister, faUpload, faUtensils ,faCocktail ,faBacon ,faIceCream ,faStar} from '@fortawesome/free-solid-svg-icons';
 import { faFacebook ,faInstagram, faTiktok, faTwitter, faYoutube} from "@fortawesome/free-brands-svg-icons" ;
 
-library.add(faMagnifyingGlass ,faFacebook, faInstagram, faTiktok, faTwitter, faHome, faMugHot, faCircleInfo, faEnvelope, faCalendar , faClock , faPhone , faMapLocation, faTimes, faSignOut, faTachometer, faYoutube, faCheck, faPlus, faEdit, faRefresh, faTruck, faCashRegister, faUpload);
+library.add(faMagnifyingGlass ,faFacebook, faInstagram, faTiktok, faTwitter, faHome, faMugHot, faCircleInfo, faEnvelope, faCalendar , faClock , faPhone , faMapLocation, faTimes, faSignOut, faTachometer, faYoutube, faCheck, faPlus, faEdit, faRefresh, faTruck, faCashRegister, faUpload, faUtensils ,faCocktail ,faBacon ,faIceCream ,faStar);
 
 // Vue Store
 // import store from './store/store'
