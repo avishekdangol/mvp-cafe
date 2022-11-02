@@ -40,7 +40,7 @@
               <router-link to="/" class="nav-link" aria-current="page">Home</router-link>
           </li>
           <li class="nav-item">
-              <router-link to="/menu" class="nav-link">Menu</router-link>
+              <router-link to="/menus" class="nav-link">Menu</router-link>
           </li><li class="nav-item">
               <router-link to="/about" class="nav-link">About</router-link>
           </li>
@@ -80,7 +80,7 @@
             </router-link>
           </li>
           <li class="nav-item text-center">
-            <router-link to="/menu" class="nav-link">
+            <router-link to="/menus" class="nav-link">
               <font-icon :icon="{ prefix: 'fas', iconName: 'mug-hot' }" />
               <p class="small mb-0">Menu</p>
             </router-link>

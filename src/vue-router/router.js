@@ -1,8 +1,8 @@
 import { createWebHistory , createRouter } from "vue-router"
 import Home from '../views/Home/Index.vue'
 import Menu from'../views/Menu/Index.vue'
-// import Contact from '../views/Contact/Index.vue'
 import PageNotFound from '../views/404.vue'
+// import Contact from '../views/Contact/Index.vue'
 // import About from '../views/About/Index.vue'
 
 //  routes for contents
@@ -13,9 +13,9 @@ const routes = [
         name: 'home'
     },
     {
-        path: '/menu',
+        path: '/menus',
         component: Menu,
-        name: 'menu'
+        name: 'menus'
     },
     // {
     //     path: '/contact',
