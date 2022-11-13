@@ -1,31 +1,34 @@
 <template>
   <div class="home">
+    <!-- Carousel -->
     <Carousel 
       :slides="slides"
       :is-loading="isLoading"
     />    
 
-    <section class="services container w-85-md my-5">
+    <!-- Features -->
+    <section class="features container w-85-md my-5" :style="featuresTheme">
       <div class="row">
         <div
           class="col-md-4 col-sm-12"
-          v-for="service in services" :key="service"
+          v-for="feature in features" :key="feature.id"
         >
           <div class="card mb-2">
-            <div class="card-body d-flex align-items-center">
+            <div class="card-body d-flex">
               <div class="img-wrapper centralize">
-                <img :src="`/storage/homepage/icons/${service.image}`" alt="">
+                <img :src="feature.image" alt="">
               </div>
               
               <div class="ms-2">
-                <h4>{{ service.name }}</h4>
-                <p>{{ service.description }}</p>
+                 <h5 class="mt-lg-4 mt-md-0 mt-2">{{ feature.title }}</h5>
+                 <p>{{ feature.description }}</p>
               </div>              
             </div>
           </div>
         </div>
       </div>
     </section>
+
 
     <info />
 
@@ -76,11 +79,18 @@
      </section>
 
     <div class="w-85 container mb-2">
-      <div class="d-flex justify-content-between align-items-center">
-        <h3 class="heading my-5">Most Popular Dishes</h3>
-        <router-link to="/menu" class="nav-link">View Full Menu</router-link>
-      </div>      
-      <Productslider />
+      <div class="d-sm-flex justify-content-between align-items-baseline">
+        <h3 class="heading my-sm-5 mt-5 mb-4">Most Popular Dishes</h3>
+        <router-link :to="{ name: 'menus' }" class="nav-link">
+          <button class="d-block d-sm-none btn btn-outline-primary mb-5 w-100">
+            View Full Menu
+          </button>
+          <span class="d-none d-sm-block">
+            View Full Menu
+          </span>
+        </router-link>
+      </div>     
+      <popular-dishes />
     </div>    
 
   </div>
@@ -89,7 +99,7 @@
 <script>
 import { ref } from 'vue'
 import Carousel from './components/Carousel.vue'
-import Productslider from './components/Productslider.vue'
+import PopularDishes from './components/PopularDishes.vue'
 import Info from './components/Info.vue'
 // importing swiper components
 import { Swiper , SwiperSlide } from 'swiper/vue'
@@ -99,7 +109,7 @@ export default {
     name: 'home',
     components: {
       Carousel,
-      Productslider,
+      PopularDishes,
       Info,
       Swiper,
       SwiperSlide
@@ -135,24 +145,24 @@ export default {
           price: '500'
         },
       ];
-      const services = [
+      const features = [
         {
           id:1,
-          name: 'Delivery',
+          title: 'Delivery',
           description: 'We provide timely delivery',
-          image: 'delivery.png'
+          image: '/storage/homepage/icons/delivery.png'
         },
         {
           id: 2,
-          name: 'Digital Payment',
+          title: 'Digital Payment',
           description: 'Esewa, Khalti, Fonepay',
-          image: 'digital-payment.png'
+          image: '/storage/homepage/icons/digital-payment.png'
         }, 
         {
           id: 3,
-          name: 'Excellent Service',
+          title: 'Excellent Service',
           description: 'You will be returning here soon',
-          image: 'service.png',
+          image: '/storage/homepage/icons/service.png',
         },
       ]
       let slides = ref([])
@@ -160,7 +170,7 @@ export default {
       return{
         items,
         img:'cafe',
-        services,
+        features,
         slides,
         isLoading,
         modules: [Navigation,Pagination,EffectFlip]
@@ -191,6 +201,9 @@ export default {
     width: 100%;
   }
 }
+.btn-outline-primary:hover {
+  color: #fafaf8;
+}
 .flex-column {
   position: relative;
   width: 18rem;
@@ -202,6 +215,64 @@ export default {
   height: 180px;
   object-fit: fill;
 }
+/* features */
+.features {
+  .card {
+    .card-body{
+      .ms-2{
+        p{
+          font-size: 0.8rem;
+        }
+      }
+    }
+    @media only screen and (max-width: 1200px) {
+      .card-body {
+        min-height: 90px;
+      }
+      h5 {
+        font-size: 0.9rem;
+      }
+      p {
+        font-size: 0.7rem;
+        margin-bottom: 0;
+        line-height: 1.5;
+      }
+    }
+  }
+  .img-wrapper {
+    background-color: #AAD8FA !important;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    img {
+      width: 50%;
+      height: 50%;
+      object-fit: cover;
+    }
+
+    @media only screen and (max-width: 768px) {
+      width: 60px;
+      height: 60px;
+    }
+  }
+  @media only screen and (max-width: 1200px) and (min-width: 768px) {
+    .img-wrapper {
+      width: 50px;
+      height: 50px;
+
+      img {
+        width: 50%;
+        height: 50%;
+      }
+    }
+    h5 {
+      margin-bottom: 4px;
+    }
+    p {
+      font-size: 12px !important;
+    }
+  }
+}
 /* special items */
 .special-items {
   height: 430px;
@@ -212,20 +283,10 @@ export default {
   align-self: flex-start;
   margin: 3rem 0 3rem 0;
 }
-.img-wrapper {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background-color: #AAD8FA;
-  img {
-    width: 50%;
-    height: 50%;
-    object-fit: cover;
-  }
-}
+
 </style>
 <!-- css for swiper -->
-<style>
+<style lang="scss">
 .swiper {
   width: 100%;
   height: auto;
@@ -265,12 +326,23 @@ export default {
   -webkit-backdrop-filter: blur( 6.5px );
   border: 1px solid rgba( 255, 255, 255, 0.18 );
   transition: all 0.3s ease-out;
-}
-.inner-card:hover .info {
-  height: 100%;
-  padding-top: 40px;
-}
 
+  @media only screen and (max-width: 1200px) {
+    height: 35%;
+    .card-body {
+      padding-top: 0;
+    }
+  }
+  @media only screen and (max-width: 576px) {
+    height: 15%;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .inner-card:hover .info {
+    height: 100%;
+    padding-top: 40px;
+  }
+}
 .swiper-slide .inner-card:hover .specials-img {
   transform: scale(1.1);
   filter: blur(2px);

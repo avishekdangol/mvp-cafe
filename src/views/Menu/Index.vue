@@ -322,7 +322,7 @@ export default {
     padding: 20px 10px;
     opacity: 0.8;
     transition: opacity 0.3s ease-in;
-    z-index: 1;
+    z-index: 10;
   }
   .categories-menu:hover {
     opacity: 1;

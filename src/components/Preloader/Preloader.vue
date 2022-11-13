@@ -25,25 +25,25 @@
 import {  ref , onMounted } from 'vue';
 
 export default {
-    setup(){
-        const isload = ref(false);
-        const html = document.documentElement;
-        html.style.overflowY = "hidden"
-        onMounted(()=>{
-           document.onreadystatechange = ()=>{
-             if(document.readyState == 'complete'){
-               setTimeout(()=>{
-                isload.value = true;
-                html.style.overflowY = "auto"
-               },3000)
-             }
-           }
-        });
-
-        return{
-          isload,
+  setup(){
+    const isload = ref(false);
+    const html = document.documentElement;
+    html.style.overflowY = "hidden"
+    onMounted(()=>{
+      document.onreadystatechange = ()=>{
+        if(document.readyState == 'complete'){
+          setTimeout(()=>{
+          isload.value = true;
+          html.style.overflowY = "auto"
+          },3000)
         }
+      }
+    });
+
+    return{
+      isload,
     }
+  }
 }
 </script>
 <style>
@@ -72,4 +72,11 @@ export default {
       d:path("M256 348.078C256 342.055 261.802 337.731 267.574 339.454L292.896 347.01C294.279 347.423 295.74 347.497 297.156 347.227L356 336L385.176 331.294C386.38 331.1 387.61 331.152 388.792 331.448L400.183 334.296C404.189 335.297 407 338.897 407 343.027V437.53V461.765V477C407 481.971 402.971 486 398 486H265C260.029 486 256 481.971 256 477V348.078Z");
     }
   }
+  @media only screen and(max-width: 979px){
+    .preloader svg{
+     width: 20%;
+     overflow: hidden;
+     position: fixed;
+    }
+   }
 </style>

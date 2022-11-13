@@ -1,11 +1,11 @@
 <template>
   <section class="about row justify-content-between align-items-center" :style="infoTheme">
-    <div class="info col-6 container">
+    <div class="info col-md-6 col-sm-12 container">
       <h3 class="heading">Cozy and Fresh Experience</h3>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid sed, debitis rem placeat numquam accusamus praesentium sequi labore sapiente odio. Assumenda fugit temporibus impedit nostrum repudiandae dolorem rem natus beatae??</p>
     </div>
     <img 
-      class="cafe-img col-6 p-0"
+      class="cafe-img col-md-6 col-sm-12 p-0"
       src="/storage/homepage/Information/cafe.jpg"
       alt="cafe"
     />
@@ -58,7 +58,8 @@ export default {
 .about {
   background-color: var(--bg-color);
   color: var(--color);
-  height: 320px;
+  height: 320px;  
+  
   .cafe-img {
     width:  50%;
     height: 100%;
@@ -67,33 +68,40 @@ export default {
   }
   .info { 
     height: 320px;
-    width: 480px;
     display: flex;
     flex-flow: column;
     justify-content: center;
 
     p{
-      margin-top: 60px;
+      margin-top: 18px ;
       width: 80%;
+    }  
+  }
+  @media only screen and (max-width: 540px) {
+    .cafe-img {
+      width: 100%;
+    }
+  }
+
+  @media only screen and (max-width: 1280px) {
+    .info {
+      padding-left: 60px;
+    }
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .info {
+    width: 480px;
+
+    p {
+      margin-top: 48px !important;
     }
   }
 }
 
-@media only screen and (max-width: 800px) {
-  section{
-    padding-left: 60px !important;
-  }  
-  .About{
-    padding-left: 0px !important;
-    width: 100vw;
-
-    .info{
-      padding-left: 60px;
-    }
-    .cafe-img{
-      width: 100vw;
-      object-fit: cover;
-    }
+@media only screen and (max-width: 760px) {
+  .about{
+    margin-bottom: 300px;
   }
 }
 </style>
