@@ -7,7 +7,7 @@
     />    
 
     <!-- Features -->
-    <section class="features container w-85-md my-5" :style="featuresTheme">
+    <section class="features container w-85-md my-5">
       <div class="row">
         <div
           class="col-md-4 col-sm-12"
@@ -346,6 +346,9 @@ export default {
 .swiper-slide .inner-card:hover .specials-img {
   transform: scale(1.1);
   filter: blur(2px);
+  @media only screen and (max-width: 1200px) {
+    filter: blur(0);
+  }
 } 
 .specials-img {
   object-fit: cover;
