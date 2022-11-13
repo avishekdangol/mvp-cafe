@@ -340,7 +340,7 @@ export default {
     flex-direction: row-reverse;
   }
   .special-offer {
-    background: url('/storage/menu/special-bg.jpg');
+    background: url('/storage/menu/header/special-bg.jpg');
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
