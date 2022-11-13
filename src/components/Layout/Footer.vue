@@ -132,8 +132,8 @@ export default {
     const y = new Date().getFullYear()
     let socials = ref([
       { key: 'facebook', value: '#' },
-      { key: 'youtube', value: '#' },
       { key: 'instagram', value: '#' },
+      { key: 'twitter', value: '#' },
       { key: 'tiktok', value: '#' },
       { key: 'youtube', value: '#' },
     ])
