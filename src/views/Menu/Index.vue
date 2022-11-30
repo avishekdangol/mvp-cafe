@@ -1,6 +1,6 @@
 <template>
   <section class="menu">
-    <div class="header-text centralize text-white">
+    <div class="header-text centralize text-white placeholder-wave">
       <div class="description centralize text-center py-4">
         <div class="w-50">
           <h1 class="fw-bold">{{ detail.title }}</h1>
@@ -25,13 +25,15 @@
       </a>
     </nav>
      
-    <!-- Menu -->
+    <!-- Special Offer -->
     <div class="special-offer mb-5">
       <div class="wrapper">
         <h1 class="text-dark">Special Offer</h1>
         <p>Get free delivery when you spend more than Rs. 600</p>
       </div>
     </div>
+
+    <!-- Menu -->
     <div
       class="container" 
       data-bs-spy="scroll" 

@@ -21,6 +21,8 @@
 import Navbar from './Navbar.vue'
 import Footer from './Footer.vue'
 import Preloader from '../Preloader/Preloader.vue'
+import { mapActions } from 'vuex'
+
 export default {
   components: {
     Navbar,
@@ -58,6 +60,18 @@ export default {
       navbar,
       footer,
     }
+  },
+  mounted() {
+    const theme = localStorage.getItem('theme')
+    if (theme) {
+      this.setTheme(theme)
+    } else {
+      const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)")
+      darkThemeMq.matches ? this.setTheme('dark') : this.setTheme('light')
+    }
+  },
+  methods: {
+    ...mapActions(['setTheme']),
   },
 }
 </script>

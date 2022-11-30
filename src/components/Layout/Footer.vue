@@ -1,6 +1,6 @@
 <template>
   <footer class="container-fluid navbar-dark bg-dark text-light pt-4">
-    <div class="container pt-4">
+    <div class="container pt-4 w-75">
       <div class="row justify-content-around">
         <div class="col-md-4 col-6 container-opening-hours mb-4">
             <h5>Opening Hours</h5>

@@ -105,7 +105,7 @@
   }
 </script>
 <style scoped>
- .productSlider{
+.productSlider{
   position: relative;
   overflow: hidden;
  }
@@ -143,17 +143,13 @@
   color: #9a9a9a;
  }
 
- @media only screen and (max-width: 979px) {
+@media only screen and (max-width: 979px) {
   .fs-sm-6 {
     font-size: 0.9rem !important;
   }
   .description {
     line-height: 1.3;
   }
- }
- /* for Tablets */
-  @media only screen and (min-width: 768px) and (max-width: 1100px){
-
 }
 </style>
 

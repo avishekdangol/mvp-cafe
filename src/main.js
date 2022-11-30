@@ -6,6 +6,7 @@ import App from './App.vue'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import router from './vue-router/router'
+import './scss/main.scss'
 
 // Components
 // import Layout from './components/Layout/Layout.vue'
@@ -13,15 +14,14 @@ import router from './vue-router/router'
 // import PageNotFound from './components/404.vue'
 
 // awesomefont icon
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { faMagnifyingGlass ,faHome, faMugHot, faCircleInfo, faEnvelope , faCalendar , faClock , faPhone, faMapLocation, faTimes, faSignOut, faTachometer, faCheck, faPlus, faEdit, faRefresh, faTruck, faCashRegister, faUpload, faUtensils ,faCocktail ,faBacon ,faIceCream ,faStar} from '@fortawesome/free-solid-svg-icons';
-import { faFacebook ,faInstagram, faTiktok, faTwitter, faYoutube} from "@fortawesome/free-brands-svg-icons" ;
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome"
+import { library } from "@fortawesome/fontawesome-svg-core"
+import icons from './icons'
 
-library.add(faMagnifyingGlass ,faFacebook, faInstagram, faTiktok, faTwitter, faHome, faMugHot, faCircleInfo, faEnvelope, faCalendar , faClock , faPhone , faMapLocation, faTimes, faSignOut, faTachometer, faYoutube, faCheck, faPlus, faEdit, faRefresh, faTruck, faCashRegister, faUpload, faUtensils ,faCocktail ,faBacon ,faIceCream ,faStar);
+library.add(icons)
 
 // Vue Store
-// import store from './store/store'
+import store from './store/store'
 
 // Vue Toastification
 // import Toast, { POSITION } from "vue-toastification"
@@ -36,7 +36,7 @@ const app = createApp(App).component("font-icon", FontAwesomeIcon)
 // app.component('page-not-found', PageNotFound)
 
 app.use(router)
-// app.use(store)
+app.use(store)
 // app.use(Toast, {
 //   position: POSITION.BOTTOM_LEFT
 // })

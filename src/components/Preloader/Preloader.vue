@@ -33,9 +33,9 @@ export default {
       document.onreadystatechange = ()=>{
         if(document.readyState == 'complete'){
           setTimeout(()=>{
-          isload.value = true;
-          html.style.overflowY = "auto"
-          },3000)
+            isload.value = true;
+            html.style.overflowY = "auto"
+          },1000)
         }
       }
     });
