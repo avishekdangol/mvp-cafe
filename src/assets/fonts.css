@@ -2,10 +2,19 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
 @font-face {
-  font-family: Lunar;
-  src: url('../fonts/Lunar.ttf');
+  font-family: "Heart";
+  src: url('fonts/Heart/heart.eot');
+  src: url('fonts/Heart/heart.eot') format('embedded-opentype'),
+      url('fonts/Heart/heart.woff2') format('woff2'),
+      url('fonts/Heart/heart.woff') format('woff'),
+      url('fonts/Heart/heart.ttf') format('truetype');
 }
+
 @font-face {
-  font-family: Heart;
-  src: url('../fonts/Heart.ttf');
+  font-family: "Lunar";
+  src: url('fonts/Lunar/Lunar.eot');
+  src: url('fonts/Lunar/Lunar.eot') format('embedded-opentype'),
+      url('fonts/Lunar/Lunar.woff2') format('woff2'),
+      url('fonts/Lunar/Lunar.woff') format('woff'),
+      url('fonts/Lunar/Lunar.ttf') format('truetype');
 }

@@ -49,34 +49,9 @@
         </SwiperSlide>
       </Swiper>
     </section> -->
-    <section class="special-items w-85 container px-2">
-    <h3 class="heading">Our Specials</h3>
-    <Swiper 
-      class="mySwiper"
-      :spaceBetween="10"
-      :pagination="{
-        clickable: true,
-      }"
-      :slidesPerView="2"
-      :modules="modules"
-     >
-      <SwiperSlide 
-        v-for="(item, index) in items" 
-        :key="index"
-        class="card"
-      >
-        <div class="inner-card" @mouseover="grayscale(index)" @mouseout="grayscale(-1)">
-          <img :src="`/storage/homepage/specials/${item.image}`" class="specials-img">
-          <div class="info">
-            <h5 class="card-header fw-bold">{{ item.name }}</h5>
-            <div class="card-body">
-              <p class="card-text fw-bold">{{ item.description }}</p>
-            </div>
-          </div>
-        </div>
-      </SwiperSlide>
-     </Swiper>
-     </section>
+    
+    <!-- Specials -->
+    <categories-display />
 
     <div class="w-85 container mb-2">
       <div class="d-sm-flex justify-content-between align-items-baseline">
@@ -101,9 +76,8 @@ import { ref } from 'vue'
 import Carousel from './components/Carousel.vue'
 import PopularDishes from './components/PopularDishes.vue'
 import Info from './components/Info.vue'
+import CategoriesDisplay from './components/CategoriesDisplay.vue'
 // importing swiper components
-import { Swiper , SwiperSlide } from 'swiper/vue'
-import { EffectFlip , Pagination , Navigation} from 'swiper'
 
 export default {
     name: 'home',
@@ -111,40 +85,9 @@ export default {
       Carousel,
       PopularDishes,
       Info,
-      Swiper,
-      SwiperSlide
+      CategoriesDisplay,
     },
     setup() {
-      const items = [
-        { 
-          id: 0,
-          name: 'Burgers',
-          description: 'Lorem the ame tsocnsctu hdlfsh fhdjfh htsocnsctu hdlfsh fhdjfh h',
-          image: 'Burgers.jpg',
-          price: '500'
-        }, 
-        { 
-          id: 1,
-          name: 'Lamb',
-          description: 'Lorem the ame tsocnsctu hdlfsh fhdjfh htsocnsctu hdlfsh fhdjfh h',
-          image: 'Lamb.jpg',
-          price: '500'
-        },
-        { 
-          id: 2,
-          name: 'Platter',
-          description: 'Lorem the ame tsocnsctu hdlfsh fhdjfh htsocnsctu hdlfsh fhdjfh h',
-          image: 'Platter.jpg',
-          price: '500'
-        },
-        { 
-          id: 3,
-          name: 'Pizza',
-          description: 'Lorem the ame tsocnsctu hdlfsh fhdjfh htsocnsctu hdlfsh fhdjfh h',
-          image: 'Pizza.jpg',
-          price: '500'
-        },
-      ];
       const features = [
         {
           id:1,
@@ -168,12 +111,10 @@ export default {
       let slides = ref([])
       let isLoading = ref(false)
       return{
-        items,
         img:'cafe',
         features,
         slides,
         isLoading,
-        modules: [Navigation,Pagination,EffectFlip]
       }
     },
     mounted() {
@@ -273,88 +214,11 @@ export default {
     }
   }
 }
-/* special items */
-.special-items {
-  height: 430px;
-  overflow-x: hidden;
-  overflow-y: hidden;
-}
-.special-items h3{
-  align-self: flex-start;
-  margin: 3rem 0 3rem 0;
-}
-
-</style>
-<!-- css for swiper -->
-<style lang="scss">
-.swiper {
-  width: 100%;
-  height: auto;
-  overflow: visible;
-}
-.swiper-pagination {
-  bottom: -30px !important;
-}
-.swiper-pagination-bullet {
-  width: 12px !important;
-  height: 12px !important;
-}
-.swiper-slide {
-  background-position: center;
-  width: 100%;
-  height: 266px;
-  perspective: 1000px;
-  cursor: pointer;
-}
-.swiper-slide .inner-card {
-  position: relative;
-  height: inherit;
-  width: inherit;
-  transform-style: preserve-3d;
-  transition: transform 0.6s ease-in-out;
-  text-align: center;
-  overflow: hidden;
-}
-.inner-card .info {
-  color: #f1f1f1;
-  width: 100%;
-  height: 0;
-  position: absolute;
-  bottom: 0;
-  background: rgb(0, 0, 0, 0.35);
-  backdrop-filter: blur( 2.5px );
-  -webkit-backdrop-filter: blur( 6.5px );
-  border: 1px solid rgba( 255, 255, 255, 0.18 );
-  transition: all 0.3s ease-out;
-
-  @media only screen and (max-width: 1200px) {
-    height: 35%;
-    .card-body {
-      padding-top: 0;
-    }
+// Dark Layout
+.dark-layout {
+  .img-wrapper {
+    background-color: #AAD8FA !important;
   }
-  @media only screen and (max-width: 576px) {
-    height: 15%;
-  }
-}
-@media only screen and (min-width: 1200px) {
-  .inner-card:hover .info {
-    height: 100%;
-    padding-top: 40px;
-  }
-}
-.swiper-slide .inner-card:hover .specials-img {
-  transform: scale(1.1);
-  filter: blur(2px);
-  @media only screen and (max-width: 1200px) {
-    filter: blur(0);
-  }
-} 
-.specials-img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-  transition: all 0.3s ease-in;
 }
 </style>
 

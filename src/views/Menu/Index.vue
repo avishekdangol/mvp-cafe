@@ -14,8 +14,8 @@
       class="categories-menu d-flex flex-column text-white text-center gap-4 align-items-center"
     >
       <a 
-        v-for="category in categories" :key="category.name"
-        :href="`#${category.name.charAt(0)}-${category.id}`"
+        v-for="(category, index) in categories" :key="category.name"
+        :href="`#${category.name.charAt(0)}-${index}`"
         class="nav-link d-flex justify-content-evenly align-items-center"
         data-bs-toggle="tooltip"
         :title="category.name"
@@ -40,7 +40,7 @@
       data-bs-target="#menu-icons" 
       data-bs-offset="0"
     >
-      <div class="categories d-flex gap-3 my-3 p-3"
+      <div class="categories d-flex gap-4 my-3 p-3"
         v-for="( category , index ) in categories" :key="index"
         :id="`${category.name.charAt(0)}-${category.id}`"
         :class="{ alternate: index % 2 === 0 }"
@@ -68,7 +68,7 @@
                 <div class="detail p-2">
                   <div class="position-relative d-flex justify-content-between">
                     <div class="dots"></div>
-                    <h5 class="z-1 mb-0 bg-light pe-1">{{ list.name }}</h5>
+                     <h5 class="z-1 mb-0 bg-light pe-1">{{ list.name }}</h5>
                     <span class="z-1 bg-light ps-1">{{ list.price }}</span>
                   </div>
                   <p class="mb-1">{{ list.description }}</p>
@@ -100,8 +100,8 @@ export default {
     const categories =[
       { 
         id: 0,
-        name: 'Appetizer',
-        url: '/storage/menu/categories/appetizer.jpg',
+        name: 'Starter',
+        url: '/storage/menu/categories/starter.jpg',
         description:'Starter cultures are an essential component of nearly all commercially produced fermented foods. Simply defined, starter cultures consist of microorganisms that are inoculated directly into food materials in order to bring about desired and predictable changes in the finished product',
         icon: 'bacon',
         list: [
@@ -144,8 +144,8 @@ export default {
       },
       {
         id: 1,
-        name: 'Cold Beverages',
-        url: '/storage/menu/categories/cold-beverage.jpg',
+        name: 'Dining',
+        url: '/storage/menu/categories/dining.jpg',
         description: 'COLD BEVERAGES means all carbonated or non-carbonated naturally or artificially flavored beverages, bottled drinking water and bottled 100% juice as defined below, which are dispensed from refrigerated vending machines',
         icon: 'cocktail',
         list:[
@@ -181,7 +181,7 @@ export default {
       },
       {
         id: 2,
-        name: 'Dining',
+        name: 'Cold Beverages',
         url: '/storage/menu/categories/cold-beverage.jpg',
         description: 'COLD BEVERAGES means all carbonated or non-carbonated naturally or artificially flavored beverages, bottled drinking water and bottled 100% juice as defined below, which are dispensed from refrigerated vending machines',
         icon: 'utensils',
@@ -217,8 +217,8 @@ export default {
         ]
       },
       {
-        id: 1,
-        name: 'Deserts',
+        id: 3,
+        name: 'Desserts',
         url: '/storage/menu/categories/cold-beverage.jpg',
         description: 'COLD BEVERAGES means all carbonated or non-carbonated naturally or artificially flavored beverages, bottled drinking water and bottled 100% juice as defined below, which are dispensed from refrigerated vending machines',
         icon: 'ice-cream',
@@ -360,6 +360,7 @@ export default {
       p {
         font-size: 28px;
         font-family: Heart;
+        color: #222;
       }
     }
   }
