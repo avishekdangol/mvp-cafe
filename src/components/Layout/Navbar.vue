@@ -35,29 +35,36 @@
         </ul>
       </div>
 
-      <div class="wrapper-form d-flex">
-        <router-link
-          :to="{ name: 'query' }"
-          class="nav-link"
+      <div class="wrapper-form d-flex justify-content-between">
+        <font-icon
+          class="search-icon"
+          :icon="showSearchIcon ? 'magnifying-glass' : 'times'"
+          :class="showSearchIcon ? 'search-btn' : 'text-dark'"
+          @click="searchbar"
+        />
+        <form
+          class="d-flex"
+          @submit.prevent="() => { $router.push({ name: 'query', query: { query } }) }"
         >
-          <div class="py-2">
-            <font-icon 
-              class="search-icon me-2" 
-              icon="magnifying-glass" 
-            />
-            Search Menu
-          </div>
-        </router-link>
-        
+          <input
+            v-model="query"
+            class="searchbar form-control me-2"
+            :class="{ searchFullWidth: !showSearchIcon }"
+            type="text"
+            placeholder="Search"
+            aria-label="Search"
+            @change="() => { showSearchIcon = !showSearchIcon }"
+          >
+        </form>
         <!-- Theme Toggle -->
-        <div 
+        <div
           v-if="getTheme"
-          class="nav-item toggle border cursor-pointer ms-4 mt-1 me-2"
+          class="nav-item toggle border cursor-pointer ms-5 mt-1 me-2"
           @click="toggle()"
         >
           <div :class="getTheme">
             <div class="inner border centralize">
-              <font-icon 
+              <font-icon
                 :icon="getTheme === 'light' ? 'sun' : 'moon'"
                 class="theme-icon"
               />
@@ -129,7 +136,7 @@ export default {
     color: var(--color) !important;
     opacity: 1 !important;
   }
-  .nav-link {    
+  .nav-link {
     color: var(--color);
     opacity: 0.6;
     transition: opacity 0.3s ease-in;
@@ -147,16 +154,30 @@ export default {
   right: 0;
 }
 .search-icon {
+  position: absolute;
+  top: 10px;
+  right: 80px;
   cursor: pointer;
   z-index: 1;
   transition: transform 0.3s ease;
 }
-
+.search-icon:hover {
+  transform: scale(1.2);
+}
+.searchbar {
+  position: absolute;
+  width: 0;
+  right: -35px;
+  transition: all 0.3s ease;
+}
+.searchFullWidth {
+  width: 250px !important;
+  right: 62px;
+}
 .toggle{
   border-radius: 15px;
   width: 50px;
   height: 25px;
-
   .inner{
     border-radius: 50%;
     background-color: #fff;
@@ -203,6 +224,6 @@ export default {
     }
   }
 }
-   
+
 </style>
 

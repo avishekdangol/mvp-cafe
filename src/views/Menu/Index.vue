@@ -15,7 +15,7 @@
     >
       <a 
         v-for="(category, index) in categories" :key="category.name"
-        :href="`#${category.name.charAt(0)}-${index}`"
+        :href="`#${category.name.charAt(0)}-${index+1}`"
         class="nav-link d-flex justify-content-evenly align-items-center"
         data-bs-toggle="tooltip"
         :title="category.name"
@@ -53,7 +53,7 @@
             </h1>
             
             <div class="items"
-              v-for="list in category.list" :key="list"
+              v-for="list in category.products" :key="list"
             >
               <div 
                 :class="list.recommended ? 'recomendation border-3 border-gold rounded mb-2': ''"
@@ -76,7 +76,7 @@
               </div>
            </div>
         </div>
-        <img :src="`${category.url}`" alt="categories"
+        <img :src="`${category.image}`" alt="categories"
           class="w-50 category-img border-5 border-warning"
           :class="index % 2 == 0 ? 'border-top border-start' : 'border-bottom border-end'"
         />
@@ -97,158 +97,176 @@ export default {
       title: 'Our Menu',
       description: 'At vero eos et u. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente erendis doloribus asperiores repellat.'
     })
-    const categories =[
-      { 
-        id: 0,
-        name: 'Starter',
-        url: '/storage/menu/categories/starter.jpg',
-        description:'Starter cultures are an essential component of nearly all commercially produced fermented foods. Simply defined, starter cultures consist of microorganisms that are inoculated directly into food materials in order to bring about desired and predictable changes in the finished product',
-        icon: 'bacon',
-        list: [
-          {
-            name: 'French fries',
-            price: 'Rs 200',
-            image: '/storage/menu/categories/starter/french.jpg',
-            description: 'lorem lorem lorem lorem lorem lroem',
-            recommended: true,
-          },
-          {
-            name: 'French fries',
-            price: 'Rs 200',
-            image: '/storage/menu/categories/starter/french.jpg',
-            description: 'lorem lorem lorem lorem lorem lroem',
-            recommended: true,
-          },
-          {
-            name: 'Corndog',
-            price: 'Rs 100',
-            image: '/storage/menu/categories/starter/corndog.jpg',
-            description:'lorem lorem lorem lorem lorem lroem',
-            recommended: false,
-          },
-          {
-            name: 'Salad',
-            price: 'Rs 130',
-            image: '',
-            description: 'lorem lorem lorem lorem lorem lroem',
-            recommended: false,
-          },
-          {
-            name: 'Chicken Sausage',
-            price: 'Rs 40',
-            image: '',
-            description: 'lorem lorem lorem lorem lorem lroem',
-            recommended: false,
-          }
-        ]
-      },
+    const categories = [
       {
         id: 1,
-        name: 'Dining',
-        url: '/storage/menu/categories/dining.jpg',
-        description: 'COLD BEVERAGES means all carbonated or non-carbonated naturally or artificially flavored beverages, bottled drinking water and bottled 100% juice as defined below, which are dispensed from refrigerated vending machines',
-        icon: 'cocktail',
-        list:[
+        name: 'Starters',
+        image: '/storage/menu/categories/starter.jpg',
+        icon: 'bacon',
+        description: 'Starter cultures are an essential component of nearly all commercially produced fermented foods. Simply defined, starter cultures consist of microorganisms that are inoculated directly into food materials in order to bring about desired and predictable changes in the finished product',
+        products: [
           {
-            name: 'Iced late',
-            price: 'Rs 300',
-            image: '',
-            description: 'lorem lorem lorem lorem lorem  lorem lroem',
-            recommended: false,
+            name: 'Wild Mushroom Arancini',
+            category_id: 1,
+            price: 180,
+            description: 'Porcini purée, parmesan, basil.',
+            recommended: 0,
           },
           {
-            name: 'Iced Americano',
-            price: 'Rs 100',
-            image: '',
-            description: 'lorem lorem lorem lorem lorem  lorem lroem',
-            recommended: false,
+            name: 'Purple Corn Tostada',
+            category_id: 1,
+            price: 200,
+            description: 'Ricotta, goat cheese, beetroot and datterini.',
+            recommended: 1,
           },
           {
-            name: 'Iced Tea',
-            price: 'Rs 60',
-            image: '',
-            description: 'lorem lorem lorem lorem lorem lorem lroem ',
-            recommended: true,
+            name: 'Salt & Pepper Calamari',
+            category_id: 1,
+            price: 180,
+            description: 'Squid, lime, soy mayo.',
+            recommended: 0,
           },
           {
-            name: 'Coke/Fanta/Sprite',
-            price: 'Rs 50',
-            image: '',
-            description: 'lorem lorem lorem lorem lorem  lorem lorem',
-            recommended: false,
-          }
-        ]
+            name: 'Fresh Oysters Dozen',
+            category_id: 1,
+            price: 380,
+            description: 'Our selection of fresh oysters, limes.',
+            recommended: 1,
+          },
+          {
+            name: 'Bread with Smoked Wagyu Butter',
+            category_id: 1,
+            price: 150,
+            description: 'Sonoma Signature Miche sourdough, lava salt.',
+            recommended: 0,
+          },
+        ],
       },
       {
         id: 2,
-        name: 'Cold Beverages',
-        url: '/storage/menu/categories/cold-beverage.jpg',
-        description: 'COLD BEVERAGES means all carbonated or non-carbonated naturally or artificially flavored beverages, bottled drinking water and bottled 100% juice as defined below, which are dispensed from refrigerated vending machines',
-        icon: 'utensils',
-        list:[
+        name: 'Sandwiches',
+        image: '/storage/menu/categories/sandwich.jpg',
+        icon: 'hotdog',
+        description: 'Starter cultures are an essential component of nearly all commercially produced fermented foods. Simply defined, starter cultures consist of microorganisms that are inoculated directly into food materials in order to bring about desired and predictable changes in the finished product',
+        products: [
           {
-            name: 'Iced late',
-            price: 'Rs 300',
-            image: '',
-            description: 'lorem lorem lorem lorem lorem  lorem lroem',
-            recommended: false,
+            name: 'Turkey Salad Sandwich',
+            category_id: 2,
+            price: 250,
+            description: 'with mustard, mayonnaise, crispy iceberg lettuce and ripe roma tomatoes',
+            recommended: 0,
           },
           {
-            name: 'Iced Americano',
-            price: 'Rs 100',
-            image: '',
-            description: 'lorem lorem lorem lorem lorem  lorem lroem',
-            recommended: false,
+            name: 'Tuna Salad Sandwich',
+            category_id: 2,
+            price: 220,
+            description: 'with mustard, mayonnaise, crispy iceberg lettuce and ripe roma tomatoes',
+            recommended: 0,
           },
           {
-            name: 'Iced Tea',
-            price: 'Rs 60',
-            image: '',
-            description: 'lorem lorem lorem lorem lorem lorem lroem ',
-            recommended: false,
+            name: 'Turkey Meat Loaf Sandwich',
+            category_id: 2,
+            price: 260,
+            description: 'with mustard, mayonnaise, crispy iceberg lettuce and ripe roma tomatoes',
+            recommended: 1,
           },
           {
-            name: 'Coke/Fanta/Sprite',
-            price: 'Rs 50',
-            image: '',
-            description: 'lorem lorem lorem lorem lorem  lorem lorem',
-            recommended: false,
-          }
-        ]
+            name: 'Vegetarian Sandwich',
+            category_id: 2,
+            price: 180,
+            description: 'with goat cheese, marinated eggplant, and roma tomatoes',
+            recommended: 0,
+          },
+        ],
       },
       {
         id: 3,
+        name: 'Main Course',
+        image: '/storage/menu/categories/dining.jpg',
+        icon: 'cutlery',
+        description: 'Starter cultures are an essential component of nearly all commercially produced fermented foods. Simply defined, starter cultures consist of microorganisms that are inoculated directly into food materials in order to bring about desired and predictable changes in the finished product',
+        products: [
+          {
+            name: 'Vegetable Lasagna And Dinner Salad',
+            category_id: 3,
+            price: 545,
+            description: 'lasagna noodles, broccoli, italian squash, spinach, assorted cheeses and ricotta, served with a dinner salad',
+            recommended: 1,
+          },
+          {
+            name: 'Roasted Chicken',
+            category_id: 3,
+            price: 925,
+            description: 'on half of a roasted chicken served with real mashed potatoes, carrots and broccoli',
+            recommended: 0,
+          },
+          {
+            name: 'Lamb Shank',
+            category_id: 3,
+            price: 750,
+            description: 'large lamb shank cooked in special sauce and served with real mashed potatoes, broccoli and carrots',
+            recommended: 0,
+          },
+          {
+            name: 'Spicy Shrimp',
+            category_id: 3,
+            price: 600,
+            description: 'fresh sauteed shrimp served on a bed of linguini in a spicy tomato cream sauce',
+            recommended: 1,
+          },
+        ],
+      },
+      {
+        id: 4,
+        name: 'Drinks',
+        image: '/storage/menu/categories/cold-beverage.jpg',
+        icon: 'cocktail',
+        description: 'Starter cultures are an essential component of nearly all commercially produced fermented foods. Simply defined, starter cultures consist of microorganisms that are inoculated directly into food materials in order to bring about desired and predictable changes in the finished product',
+        products: [
+          {
+            name: 'Gourmet Tea',
+            category_id: 4,
+            price: 200,
+            description: '',
+            recommended: 0,
+          },
+          {
+            name: 'Gourmet Coffee',
+            category_id: 4,
+            price: 250,
+            description: '',
+            recommended: 1,
+          },
+          {
+            name: 'Cappuccino, Latte',
+            category_id: 4,
+            price: 200,
+            description: '',
+            recommended: 0,
+          },
+          {
+            name: 'Soft Drinks',
+            category_id: 4,
+            price: 90,
+            description: 'Coke/ Fanta/ Sprite/ Slice',
+            recommended: 0,
+          },
+          {
+            name: 'Fresh Squeezed Lemonade',
+            category_id: 4,
+            price: 180,
+            description: '',
+            recommended: 0,
+          },
+        ],
+      },
+      {
+        id: 5,
         name: 'Desserts',
-        url: '/storage/menu/categories/cold-beverage.jpg',
-        description: 'COLD BEVERAGES means all carbonated or non-carbonated naturally or artificially flavored beverages, bottled drinking water and bottled 100% juice as defined below, which are dispensed from refrigerated vending machines',
+        image: '/storage/menu/categories/desserts.jpg',
         icon: 'ice-cream',
-        list:[
-          {
-            name: 'Iced late',
-            price: 'Rs 300',
-            image: '',
-            description: 'lorem lorem lorem lorem lorem  lorem lroem'
-          },
-          {
-            name: 'Iced Americano',
-            price: 'Rs 100',
-            image: '',
-            description: 'lorem lorem lorem lorem lorem  lorem lroem'
-          },
-          {
-            name: 'Iced Tea',
-            price: 'Rs 60',
-            image: '',
-            description: 'lorem lorem lorem lorem lorem lorem lroem '
-          },
-          {
-            name: 'Coke/Fanta/Sprite',
-            price: 'Rs 50',
-            image: '',
-            description: 'lorem lorem lorem lorem lorem  lorem lorem'
-          }
-        ]
-      }
+        description: 'Starter cultures are an essential component of nearly all commercially produced fermented foods. Simply defined, starter cultures consist of microorganisms that are inoculated directly into food materials in order to bring about desired and predictable changes in the finished product',
+      },
     ]
 
     return{
