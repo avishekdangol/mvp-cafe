@@ -145,7 +145,7 @@ export default {
       {
         id: 2,
         name: 'Sandwiches',
-        image: '/storage/menu/categories/sandwich.jpg',
+        image: '/storage/menu/categories/sandwich.jpeg',
         icon: 'hotdog',
         description: 'Starter cultures are an essential component of nearly all commercially produced fermented foods. Simply defined, starter cultures consist of microorganisms that are inoculated directly into food materials in order to bring about desired and predictable changes in the finished product',
         products: [
