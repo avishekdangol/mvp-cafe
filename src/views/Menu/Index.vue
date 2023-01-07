@@ -266,6 +266,36 @@ export default {
         image: '/storage/menu/categories/desserts.jpg',
         icon: 'ice-cream',
         description: 'Starter cultures are an essential component of nearly all commercially produced fermented foods. Simply defined, starter cultures consist of microorganisms that are inoculated directly into food materials in order to bring about desired and predictable changes in the finished product',
+        products: [
+          {
+            name: 'Hot Chocolate Pot',
+            category_id: 5,
+            price: 800,
+            description: 'Chocolate, Egg, Butter',
+            recommended: 0,
+          },
+          {
+            name: 'Raspberry Almond Tart',
+            category_id: 5,
+            price: 675,
+            description: 'Butter cookie tart shell layered with raspberry jam and almond creme filling',
+            recommended: 0,
+          },
+          {
+            name: 'Red Velvet Cake',
+            category_id: 5,
+            price: 800,
+            description: 'Smooth as velvet! A rich, red, mild chocolate flavored cake topped with cream cheese frosting',
+            recommended: 0,
+          },
+          {
+            name: 'Banana Bash',
+            category_id: 5,
+            price: 750,
+            description: 'Soft chocolate chip cake filled with flavorful banana pudding, topped with custard filled cream puffs.',
+            recommended: 1,
+          },
+        ],
       },
     ]
 

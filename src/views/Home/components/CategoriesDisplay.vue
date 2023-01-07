@@ -48,28 +48,30 @@ export default {
           name: 'Starter',
           description: 'Lorem the ame tsocnsctu hdlfsh fhdjfh htsocnsctu hdlfsh fhdjfh h',
           image: '/storage/menu/categories/starter.jpg',
-          price: '500'
         }, 
         { 
           id: 1,
+          name: 'Sandwiches',
+          description: 'Lorem the ame tsocnsctu hdlfsh fhdjfh htsocnsctu hdlfsh fhdjfh h',
+          image: '/storage/menu/categories/sandwich.jpeg',
+        }, 
+        { 
+          id: 2,
           name: 'Dining',
           description: 'Lorem the ame tsocnsctu hdlfsh fhdjfh htsocnsctu hdlfsh fhdjfh h',
           image: '/storage/menu/categories/dining.jpg',
-          price: '500'
-        },
-        { 
-          id: 2,
-          name: 'Cold Beverages',
-          description: 'Lorem the ame tsocnsctu hdlfsh fhdjfh htsocnsctu hdlfsh fhdjfh h',
-          image: '/storage/menu/categories/cold-beverage.jpg',
-          price: '500'
         },
         { 
           id: 3,
+          name: 'Cold Beverages',
+          description: 'Lorem the ame tsocnsctu hdlfsh fhdjfh htsocnsctu hdlfsh fhdjfh h',
+          image: '/storage/menu/categories/cold-beverage.jpg',
+        },
+        { 
+          id: 4,
           name: 'Desserts',
           description: 'Lorem the ame tsocnsctu hdlfsh fhdjfh htsocnsctu hdlfsh fhdjfh h',
-          image: '',
-          price: '500'
+          image: '/storage/menu/categories/desserts.jpg',
         },
       ])
 
