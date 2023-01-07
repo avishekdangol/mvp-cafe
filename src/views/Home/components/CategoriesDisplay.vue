@@ -16,7 +16,7 @@
         class="card"
       >
           <div class="inner-card" @mouseover="grayscale(index)" @mouseout="grayscale(-1)">
-            <router-link :to="{ name: 'menus', hash: `#${item.name.charAt(0)}-${index}` }">
+            <router-link :to="{ name: 'menus', hash: `#${getCategoryId(item.name)}` }">
               <img :src="item.image" class="specials-img">
               <div class="info">
                 <h5 class="card-header fw-bold">{{ item.name }}</h5>
@@ -57,13 +57,13 @@ export default {
         }, 
         { 
           id: 2,
-          name: 'Dining',
+          name: 'Main Course',
           description: 'Lorem the ame tsocnsctu hdlfsh fhdjfh htsocnsctu hdlfsh fhdjfh h',
           image: '/storage/menu/categories/dining.jpg',
         },
         { 
           id: 3,
-          name: 'Cold Beverages',
+          name: 'Drinks',
           description: 'Lorem the ame tsocnsctu hdlfsh fhdjfh htsocnsctu hdlfsh fhdjfh h',
           image: '/storage/menu/categories/cold-beverage.jpg',
         },
@@ -89,6 +89,9 @@ export default {
           card.classList.add('grayscale')
       })
     },
+    getCategoryId(category) {
+      return category.split(" ")[0]
+    }
   },
 }
 </script>

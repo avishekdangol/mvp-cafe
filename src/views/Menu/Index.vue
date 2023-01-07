@@ -15,7 +15,7 @@
     >
       <a 
         v-for="(category, index) in categories" :key="category.name"
-        :href="`#${category.name.charAt(0)}-${index+1}`"
+        :href="`#${getCategoryId(category.name)}`"
         class="nav-link d-flex justify-content-evenly align-items-center"
         data-bs-toggle="tooltip"
         :title="category.name"
@@ -42,7 +42,7 @@
     >
       <div class="categories d-flex gap-4 my-3 p-3"
         v-for="( category , index ) in categories" :key="index"
-        :id="`${category.name.charAt(0)}-${category.id}`"
+        :id="getCategoryId(category.name)"
         :class="{ alternate: index % 2 === 0 }"
       >
         <div class="category-details w-50 mt-2">
@@ -324,6 +324,11 @@ export default {
     new ScrollSpy(document.body, {
       target: '#menu-icons'
     })
+  },
+  methods: {
+    getCategoryId(category) {
+      return category.split(" ")[0]
+    }
   },
 }
 
