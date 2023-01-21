@@ -47,7 +47,7 @@
               <router-link :to="{ name: 'menus' }" class="nav-link">Menu</router-link>
           </li>
           <li class="nav-item">
-              <router-link :to="{ name: 'menus' }" class="nav-link">About</router-link>
+              <router-link :to="{ name: 'about' }" class="nav-link">About</router-link>
           </li>
           <li class="nav-item">
               <router-link :to="{ name: 'menus' }" class="nav-link">Contact</router-link>
@@ -72,17 +72,17 @@
           </router-link>
         </li>
         <li class="nav-item text-center">
-          <router-link :to="{ name: 'menus' }" class="nav-link">
+          <router-link :to="{ name: 'about' }" class="nav-link">
             <font-icon :icon="{ prefix: 'fas', iconName: 'info-circle' }" />
             <p class="small mb-0">About Us</p>
           </router-link>
         </li>
-        <li class="nav-item text-center">
+        <!-- <li class="nav-item text-center">
           <router-link :to="{ name: 'menus' }" class="nav-link">
             <font-icon :icon="{ prefix: 'fas', iconName: 'envelope' }" />
             <p class="small mb-0">Contact</p>
           </router-link>
-        </li>
+        </li> -->
       </ul>
     </section>
 

@@ -4,7 +4,7 @@ import Menu from'../views/Menu/Index.vue'
 import Query from'../views/Query/Index.vue'
 import PageNotFound from '../views/404.vue'
 // import Contact from '../views/Contact/Index.vue'
-// import About from '../views/About/Index.vue'
+import About from '../views/About/Index.vue'
 
 //  routes for contents
 const routes = [
@@ -28,11 +28,11 @@ const routes = [
     //     component: Contact,
     //     name: 'contact'
     // },
-    // {
-    //     path: '/about',
-    //     component: About,
-    //     name: 'about'
-    // },
+    {
+        path: '/about',
+        component: About,
+        name: 'about'
+    },
     {
         path: '/:pathMatch(.*)*',
         component: PageNotFound,
