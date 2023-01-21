@@ -97,20 +97,20 @@
         >
           <div class="card p-3">
             <div class="row py-2">
-              <div class="col-md-4 col-sm-3">
+              <div class="col-md-4 col-sm-3 col-4">
                 <img
                   src="/storage/about/blank.png"
                   :alt="member.name"
-                  class="rounded-circle img-fluid"
+                  class="member-img rounded-circle img-fluid"
                 >
               </div>
-              <div class="col-md-8 col-sm-9">
+              <div class="col-md-8 col-sm-9 col-8">
                 <div>
-                  <h5 class="card-title mb-0">
+                  <h5 class="card-title fs-6 mb-0">
                     {{ member.name }}
                   </h5>
-                  <div class="card-title muted">
-                    {{ member.title }}
+                  <div class="card-text fs-7 muted mb-2">
+                    <small>{{ member.title }}</small>
                   </div>
 
                   <div class="media d-flex gap-4 sm-card-media">
@@ -210,6 +210,12 @@ export default {
  }
  // style for mobile
  @media only screen and (max-width: 800px) {
+  .fs-6 {
+    font-size: 14px !important;
+  }
+  .fs-7 {
+    font-size: 12px;
+  }
    .about{
     .header{
       .wrapper{
@@ -229,14 +235,6 @@ export default {
    }
   .w-80{
     width: 80%;
-  }
-  .container{
-     .teams{
-       img{
-        width: 90px;
-        height: 90px;
-       }
-     }
   }
  }
  @media only screen  and (min-width: 800px) and (max-width: 820px) {
