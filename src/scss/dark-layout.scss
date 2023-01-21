@@ -15,16 +15,16 @@
     color: #f1f1f1 !important;
   }
 
-  // Footer
-  footer {
-    background-color: #22222b !important;
-    box-shadow: 8px 0px 16px 0 rgba( 0, 0, 0, 0.37 ) !important;
-  }
-  
   // Searchbar
   .searchbar-dyn {
     background-color: transparent;
     color: #e6e6e6;
+  }
+
+  // Footer
+  footer {
+    background-color: #22222b !important;
+    box-shadow: 8px 0px 16px 0 rgba( 0, 0, 0, 0.37 ) !important;
   }
 
   // Colors
@@ -66,5 +66,10 @@
   }
   .swiper-pagination-bullet-active {
     background-color: #fafaf8;
+  }
+  .about{
+    .header{
+      color: #000;
+    }
   }
 }

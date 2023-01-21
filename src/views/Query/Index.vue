@@ -56,8 +56,8 @@
                   :id="index"
                   v-model="selectedCategories"
                   type="checkbox"
-                  :value="data.name"
-                  @change="selectedCategory"
+                  :value="data.id"
+                  @change="filter"
                 >
                 <label :for="index"> {{ data.name }}</label>
               </div>
@@ -71,7 +71,7 @@
                 v-model="recommended"
                 type="checkbox"
                 name="recommended"
-                @click="recommendation"
+                @change="filter"
               >
               <label
                 for="recommended"
@@ -409,21 +409,20 @@ export default {
       })
       this.searchResults = result
     },
-    selectedCategory() {
-      if (this.selectedCategories.length) {
-        this.filteredResults = this.searchResults.filter(product => this.selectedCategories.includes(product.category.name))
-      } else this.filteredResults = null
-    },
-    recommendation(event) {
-      if (event.target.checked) {
-        this.filteredResults = this.searchResults.filter(product => product.recommended === 1)
-      } else this.filteredResults = null
-    },
     filter() {
-      let result = ''
-      if (this.filteredResults) result = 'filteredResults'
-      else result = 'searchResults'
-      this.filteredResults = this[result].filter(item => item.price >= this.min && (this.max ? item.price <= this.max : 1))
+      let result = []
+
+      // price filter
+      result = this.searchResults.filter(item => item.price >= this.min && (this.max ? item.price <= this.max : 1))
+
+      // category filter
+      if (this.selectedCategories.length) {
+        result = result.filter(product => this.selectedCategories.includes(product.category_id))
+      }
+
+      // recommended filter
+      if (this.recommended) result = result.filter(product => product.recommended)
+      this.filteredResults = result
     },
     clearFilter() {
       this.filteredResults = null
@@ -444,6 +443,10 @@ export default {
 .searchPage{
   min-height: 80vh;
   padding: 0 28px;
+  .card {
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+  }
   .dots {
     position: absolute;
     left: 0;
@@ -490,6 +493,7 @@ export default {
   .ribbon-1 {
     position: fixed;
     background: #ae441e;
+    color: #f1f1f1;
     box-shadow: 0 0 6px 30px #ae441e;
     clip-path: inset(0 -100%);
   }
