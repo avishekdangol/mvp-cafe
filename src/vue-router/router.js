@@ -1,4 +1,4 @@
-import { createWebHashHistory , createRouter } from "vue-router"
+import { createWebHistory , createRouter } from "vue-router"
 import Home from '../views/Home/Index.vue'
 import Menu from'../views/Menu/Index.vue'
 import Query from'../views/Query/Index.vue'
@@ -35,12 +35,12 @@ const routes = [
     },
     {
         path: '/:pathMatch(.*)*',
-        component: PageNotFound,
+        component: Home,
     },
 ]
 
 const router = createRouter({
-    history: createWebHashHistory(),
+    history: createWebHistory(),
     routes,
     scrollBehavior(to) {
         let el = 'body'
