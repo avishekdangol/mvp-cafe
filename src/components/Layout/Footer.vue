@@ -1,8 +1,77 @@
 <template>
   <footer class="container-fluid navbar-dark bg-dark text-light pt-4">
-    <div class="container pt-4 w-75">
+    <div class="container pt-4 w-80">
       <div class="row justify-content-around">
-        <div class="col-md-4 col-6 container-opening-hours mb-4">
+        <!-- Left Side -->
+        <div class="col-md-4 col-12 mb-4">
+          <div class="d-flex">
+            <img v-if="info.logo" :src="info.logo" alt="" class="logo me-3">
+
+            <div>
+              <h5 v-if="info.website_name">{{ info.website_name }}</h5>
+              <div v-if="info.location" class="d-flex align-items-baseline">
+                <font-icon :icon="{ prefix: 'fas', iconName: 'map-location' }" />
+                <p class="mb-1 ms-2">
+                  {{ info.location }}
+                </p> 
+              </div> 
+
+              <div class="d-flex align-items-baseline">
+                <font-icon :icon="{ prefix: 'fas', iconName: 'envelope' }" />
+                <p class="mb-1 ms-2">{{ info.email }}</p>
+              </div>
+              <div class="d-flex align-items-baseline">
+                <font-icon :icon="{ prefix: 'fas' , iconName: 'phone'}" />
+                <p class="mb-1 ms-2">{{ info.phone }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- navbar in desktop -->
+        <div class="col-md-4 d-none d-sm-block text-center mb-4">
+          <div class="footer-nav d-none d-sm-block">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                  <router-link :to="{ name: 'home' }" class="nav-link">Home</router-link>
+              </li>
+              <li class="nav-item">
+                  <router-link :to="{ name: 'menus' }" class="nav-link">Menu</router-link>
+              </li>
+              <li class="nav-item">
+                  <router-link :to="{ name: 'about' }" class="nav-link">About</router-link>
+              </li>
+              <li class="nav-item">
+                  <router-link :to="{ name: 'menus' }" class="nav-link">Contact</router-link>
+              </li>
+            </ul>
+          </div> 
+
+          <!-- Social Medias -->
+          <div class="social_media d-flex justify-content-center mb-y">
+            <div
+              v-for="social in socials"
+              :key="social.id"
+              class="items"
+            >
+              <a
+                v-if="social.value" 
+                :href="social.value"
+                :class="social.key"
+              >
+                <font-icon 
+                  class="icon"
+                  :icon="{ prefix: 'fab', iconName: social.key}"
+                />
+              </a>
+            </div>
+          </div> 
+        </div>
+
+        <!-- Right Side -->
+        <div class="col-md-4 col-12 mb-4 d-flex flex-column align-items-center">
+          <!-- Opening Hours -->
+          <div class="opening-hours mb-4">
             <h5>Opening Hours</h5>
             <div class="d-flex align-items-baseline">
               <font-icon class="icon" icon="calendar" />
@@ -12,48 +81,10 @@
               <font-icon class="icon" icon="clock" />
               <p class="mb-1 ms-2"> {{ info.opening_hours }}</p>
             </div>
-        </div>
-        <div class="col-md-4 d-none d-sm-block text-center mb-4">
-          <h5 v-if="info.website_name">{{ info.website_name }}</h5>
-          <p 
-            v-if="info.location"
-            class="mb-1"
-          >
-            {{ info.location }}
-          </p>
-        </div>
-        <div class="col-md-4 col-6 mb-4 d-flex flex-column align-items-end">
-          <div class="">
-            <h5>Contact us</h5>
-            <div class="d-flex align-items-baseline">
-              <font-icon :icon="{ prefix: 'fas', iconName: 'envelope' }" />
-              <p class="mb-1 ms-2">{{ info.email }}</p>
-            </div>
-            <div class="d-flex align-items-baseline">
-              <font-icon :icon="{ prefix: 'fas' , iconName: 'phone'}" />
-              <p class="mb-1 ms-2">{{ info.phone }}</p>
-            </div>
           </div>
         </div>
       </div>
-    
-      <!-- navbar in desktop -->
-      <div class="footer-nav d-none d-sm-block align-items-end align-self-center">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-end">
-          <li class="nav-item">
-              <router-link :to="{ name: 'home' }" class="nav-link">Home</router-link>
-          </li>
-          <li class="nav-item">
-              <router-link :to="{ name: 'menus' }" class="nav-link">Menu</router-link>
-          </li>
-          <li class="nav-item">
-              <router-link :to="{ name: 'about' }" class="nav-link">About</router-link>
-          </li>
-          <li class="nav-item">
-              <router-link :to="{ name: 'menus' }" class="nav-link">Contact</router-link>
-          </li>
-        </ul>
-      </div> 
+          
     </div>
 
     <!-- Navigation menu for mobile -->
@@ -86,29 +117,9 @@
       </ul>
     </section>
 
-    <!-- Social Medias -->
-    <div class="social_media d-flex justify-content-center mb-4">
-      <div
-        v-for="social in socials"
-        :key="social.id"
-        class="items"
-      >
-        <a
-          v-if="social.value" 
-          :href="social.value"
-          :class="social.key"
-        >
-          <font-icon 
-            class="icon"
-            :icon="{ prefix: 'fab', iconName: social.key}"
-          />
-        </a>
-      </div>
-    </div> 
-
     <div class="auther">
       <p class="mb-0 pb-3">
-        Copyright by {{ `${info.website_name} ${y}` }}.  All rights reserved.
+        Copyright &copy; {{ `${info.website_name} ${y}` }}.  All rights reserved.
       </p>
     </div>
   </footer>
@@ -159,6 +170,13 @@ footer {
   background-color: var(--bg-color);
   @media only screen and (max-width: 576px) {
     padding: 0;
+  }
+  .w-80 {
+    width: 80%;
+  }
+  .logo {
+    width: 60px;
+    height: 60px;
   }
   .router-link-active {
     color: #fafaf8;

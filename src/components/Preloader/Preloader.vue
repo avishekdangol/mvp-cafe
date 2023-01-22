@@ -53,7 +53,7 @@ export default {
     position: fixed;
     background-color: #221811;
     color: #fff;
-    z-index: 10;
+    z-index: 100;
   }
   #liqual{
    animation: wave 4s ease-in-out;

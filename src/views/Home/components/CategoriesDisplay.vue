@@ -128,11 +128,14 @@ export default {
   @media only screen and (max-width: 1200px) {
     height: 35%;
     .card-body {
-      padding-top: 0;
+      padding-top: 0;      
     }
   }
   @media only screen and (max-width: 576px) {
-    height: 15%;
+    height: 14%;
+    .card-header {
+      font-size: 16px;
+    }
   }
 }
 @media only screen and (min-width: 1200px) {

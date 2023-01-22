@@ -1,5 +1,23 @@
 <template>
-  <section class="menu">
+  <section class="menus">
+    <!-- sticky side categoires menu -->
+    <nav 
+      id="menu-icons"
+      class="categories-menu d-flex flex-column text-white gap-4 align-items-center"
+    >
+      <a 
+        v-for="(category, index) in categories" :key="category.name"
+        :href="`#${getCategoryId(category.name)}`"
+        class="nav-link d-flex justify-content-evenly align-items-center pl-3"
+        data-bs-toggle="tooltip"
+        :title="category.name"
+      >
+        <font-icon :icon="{ prefix: 'fas' , iconName: category.icon }" />
+        <span class="text-start">{{ category.iconName }}</span>
+      </a>
+    </nav>
+
+    <!-- Menu Header -->
     <div class="header-text centralize text-white placeholder-wave">
       <div class="description centralize text-center py-4">
         <div class="w-50">
@@ -8,27 +26,11 @@
         </div>
       </div>
     </div>
-    <!-- sticky side categoires menu -->
-    <nav 
-      id="menu-icons"
-      class="categories-menu d-flex flex-column text-white text-center gap-4 align-items-center"
-    >
-      <a 
-        v-for="(category, index) in categories" :key="category.name"
-        :href="`#${getCategoryId(category.name)}`"
-        class="nav-link d-flex justify-content-evenly align-items-center"
-        data-bs-toggle="tooltip"
-        :title="category.name"
-      >
-        <font-icon :icon="{ prefix: 'fas' , iconName: category.icon }" />
-        <span class="text-start">{{ category.iconName }}</span>
-      </a>
-    </nav>
      
     <!-- Special Offer -->
     <div class="special-offer mb-5">
       <div class="wrapper">
-        <h1 class="text-dark">Special Offer</h1>
+        <h1 class="offer-title text-dark">Special Offer</h1>
         <p>Get free delivery when you spend more than Rs. 600</p>
       </div>
     </div>
@@ -40,12 +42,17 @@
       data-bs-target="#menu-icons" 
       data-bs-offset="0"
     >
-      <div class="categories d-flex gap-4 my-3 p-3"
+      <div class="categories row my-3"
         v-for="( category , index ) in categories" :key="index"
         :id="getCategoryId(category.name)"
-        :class="{ alternate: index % 2 === 0 }"
       >
-        <div class="category-details w-50 mt-2">
+        <div class="col-md-6 col-sm-12 category-img-wrap">
+          <img :src="`${category.image}`" alt="categories"
+            class="category-img border-5 border-warning"
+            :class="index % 2 == 0 ? 'border-top border-start' : 'border-bottom border-end'"
+          />
+        </div>
+        <div class="col-md-6 col-sm-12 category-details mt-2 px-5">
             <h1 
               :class="{ 'text-right': index % 2 !== 0 }"
             >
@@ -66,20 +73,16 @@
                   Recommended
                 </div>
                 <div class="detail p-2">
-                  <div class="position-relative d-flex justify-content-between">
+                  <div class="position-relative d-flex justify-content-between align-items-baseline">
                     <div class="dots"></div>
                      <h5 class="z-1 mb-0 bg-light pe-1">{{ list.name }}</h5>
                     <span class="z-1 bg-light ps-1">{{ list.price }}</span>
                   </div>
-                  <p class="mb-1">{{ list.description }}</p>
+                  <p class="mb-1 muted">{{ list.description }}</p>
                 </div>
               </div>
            </div>
         </div>
-        <img :src="`${category.image}`" alt="categories"
-          class="w-50 category-img border-5 border-warning"
-          :class="index % 2 == 0 ? 'border-top border-start' : 'border-bottom border-end'"
-        />
       </div>
     </div>
   </section>
@@ -90,7 +93,7 @@ import { reactive , ref } from 'vue'
 import { Tooltip, ScrollSpy } from 'bootstrap'
 
 export default {
-  name: 'menu',
+  name: 'menus',
   setup(){
     const background = ref('url("/storage/menu/header/background.jpg")')
     const detail = reactive({
@@ -316,14 +319,16 @@ export default {
     },
   },
   mounted() {
-    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-    tooltipTriggerList.map(function (tooltipTriggerEl) {
-      return new Tooltip(tooltipTriggerEl)
-    })
+    // var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    // tooltipTriggerList.map(function (tooltipTriggerEl) {
+    //   return new Tooltip(tooltipTriggerEl)
+    // })
 
-    new ScrollSpy(document.body, {
-      target: '#menu-icons'
-    })
+    if (this.$route.name === 'menus') {
+      new ScrollSpy(document.body, {
+        target: '#menu-icons'
+      })
+    }
   },
   methods: {
     getCategoryId(category) {
@@ -334,13 +339,13 @@ export default {
 
 </script>
 <style lang="scss" scoped>
- .menu {
+ .menus {
   .header-text {
     background-image: v-bind(background);
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
-    height: 400px;
+    height: 50vh;
     overflow-y: hidden;
     .description{
       background-color: rgba(0, 0, 0, 0.35);
@@ -350,14 +355,19 @@ export default {
     }
   }
   .container .categories {
-    margin-bottom: 96px !important;
     .category-details {
       height: 480px;
       overflow-y: auto;
     }
-    .category-img {
+
+    .category-img-wrap {
       height: 480px;
-      object-fit: cover;
+      width: 50%;
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
     }
     .dots {
       position: absolute;
@@ -391,15 +401,12 @@ export default {
     color: #ff9900;
     transform: scale(1.15);
   }
-  .alternate{
-    flex-direction: row-reverse;
-  }
   .special-offer {
     background: url('/storage/menu/header/special-bg.jpg');
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
-    height: 350px;
+    height: 45vh;
     position: relative;
     .wrapper {
       position: absolute;
@@ -414,6 +421,40 @@ export default {
         font-size: 28px;
         font-family: Heart;
         color: #222;
+      }
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    .categories {
+      margin-bottom: 96px !important;
+    }
+    .categories:nth-child(odd) {
+      flex-direction: row-reverse;
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    .categories-menu {
+      width: 40px;
+    }
+    .category-img-wrap {
+      width: 100% !important;
+    }
+    .category-details {
+      h1 {
+        margin-top: 18px;
+      }
+    }
+    .detail {
+      h1 {
+        font-size: calc(1rem + 1.5vw)
+      }
+      h5 {
+        font-size: 0.9rem;
+      }
+      p {
+        font-size: 0.6rem;
       }
     }
   }

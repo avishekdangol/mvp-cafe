@@ -1,9 +1,9 @@
 <template>
   <section class="about">
     <div class="header">
-      <div class="wrapper d-flex gap-4 justify-content-center">
+      <div class="wrapper row gap-4 justify-content-center">
         <!-- <h4 class="align-self-center">Since 1999</h4> -->
-        <div class="container about-info ps-5">
+        <div class="container about-info col-md-7 col-sm-12 px-5">
           <div class="my-5">
             <h1 class="text-center fw-bolder p-4">
               Who we are
@@ -23,6 +23,7 @@
           </div>
         </div>
         <img
+          class="col-md-4 col-sm-12"
           src="/storage/about/serve.jpg"
           alt="img"
           height="500"
@@ -53,7 +54,7 @@
             <p class="p-4">
               A recipe has no soul.
               You , as the cook,
-              must beign soul to the recipe
+              must bring soul to the recipe
             </p>
           </div>
           <figcaption class="blockquote-footer">
@@ -75,9 +76,9 @@
           class="col-lg-6 align-self-center"
         >
           <h4 class="my-4">
-            Teamwork
+            Team
           </h4>
-          Teamwork is essential in the food industry. All food service operations require teamwork in order to ensure that food is prepared and served safely and efficiently. Teamwork helps to ensure that all tasks are completed in a timely manner and at a high quality level.
+          <p>Teamwork is essential in the food industry. All food service operations require teamwork in order to ensure that food is prepared and served safely and efficiently. Teamwork helps to ensure that all tasks are completed in a timely manner and at a high quality level.</p>
         </div>
         <img
           src="/storage/about/team.jpg"
@@ -182,6 +183,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.w-80{
+    width: 80%;
+  }
 .dark-layout {
   .about .about-info {
     color: #101010;
@@ -207,46 +211,6 @@ export default {
  }
  .quote{
   width: 100%;
- }
- // style for mobile
- @media only screen and (max-width: 800px) {
-  .fs-6 {
-    font-size: 14px !important;
-  }
-  .fs-7 {
-    font-size: 12px;
-  }
-   .about{
-    .header{
-      .wrapper{
-        flex-direction: column;
-        font-size: 0.9rem;
-        p{
-          width: 90%;
-        }
-        img{
-         width: 100%
-        }
-        figure{
-          width: 100%;
-        }
-      }
-    }
-   }
-  .w-80{
-    width: 80%;
-  }
- }
- @media only screen  and (min-width: 800px) and (max-width: 820px) {
-   .about{
-    .header{
-      .wrapper{
-       p{
-         font-size: 0.7rem;
-       }
-      }
-    }
-  }
  }
 
 </style>

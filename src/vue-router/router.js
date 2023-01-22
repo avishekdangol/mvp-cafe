@@ -1,4 +1,4 @@
-import { createWebHistory , createRouter } from "vue-router"
+import { createWebHashHistory , createRouter } from "vue-router"
 import Home from '../views/Home/Index.vue'
 import Menu from'../views/Menu/Index.vue'
 import Query from'../views/Query/Index.vue'
@@ -40,12 +40,15 @@ const routes = [
 ]
 
 const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHashHistory(),
     routes,
     scrollBehavior(to) {
+        let el = 'body'
+        if (to.hash) el = to.hash
         return {
-            el: to.hash ? to.hash : '',
+            el,
             top: 0,
+            left: 0,
         }
     }
 });
