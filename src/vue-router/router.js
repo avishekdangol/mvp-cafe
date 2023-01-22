@@ -34,7 +34,7 @@ const routes = [
         name: 'about'
     },
     {
-        path: '/:pathMatch(.*)*',
+        path: '/*',
         component: Home,
     },
 ]
