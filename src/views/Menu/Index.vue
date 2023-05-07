@@ -363,10 +363,11 @@ export default {
     .category-img-wrap {
       height: 480px;
       width: 50%;
+      text-align: right;
       img {
         object-fit: cover;
-        width: 100%;
-        height: 100%;
+        width: 95%;
+        height: 95%;
       }
     }
     .dots {

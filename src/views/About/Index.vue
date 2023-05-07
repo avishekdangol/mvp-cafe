@@ -4,7 +4,7 @@
       <div class="wrapper row gap-4 justify-content-center">
         <!-- <h4 class="align-self-center">Since 1999</h4> -->
         <div class="container about-info col-md-7 col-sm-12 px-5">
-          <div class="my-5">
+          <div class="my-4">
             <h1 class="text-center fw-bolder p-4">
               Who we are
             </h1>
@@ -13,7 +13,7 @@
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat modi, eos cum vel aut, vero quidem id nulla, consequatur corrupti ratione dolorum architecto voluptates porro. Eius ratione quos laudantium ad.
             </p>
           </div>
-          <div class="my-5">
+          <div class="my-4">
             <h1 class="text-center fw-bolder">
               Why choose us
             </h1>
@@ -22,13 +22,13 @@
             </P>
           </div>
         </div>
-        <img
-          class="col-md-4 col-sm-12"
-          src="/storage/about/serve.jpg"
-          alt="img"
-          height="500"
-          width="500"
-        >
+        <div class="img-wrap">
+          <img
+            class="col-md-4 col-sm-12"
+            src="/storage/about/serve.jpg"
+            alt="img"
+          >
+        </div>
       </div>
     </div>
     <div class="wrapper d-flex justify-content-center p-5">
@@ -194,12 +194,26 @@ export default {
  .about {
   .header{
     background-color: #F9D9AA;
-  .container{
-    img{
-      object-fit: cover;
+    .container{
+      img{
+        object-fit: cover;
+      }
+    }
+    .wrapper {
+      height: 500px;
+
+      .img-wrap {
+        width: 500px;
+        height: 500px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
     }
   }
-   }
    .images{
     background-image: v-bind(background);
     background-position: center;

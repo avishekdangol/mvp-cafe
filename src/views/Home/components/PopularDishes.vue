@@ -55,11 +55,11 @@
     setup(){
         const items = [  
           {
-            name: 'lambchop',
+            name: 'Purple Corn Tostada',
             img: '/storage/homepage/menu/lambchop.jpg',
-            description:"Lamb loin, white wine, lemon juice, garlic, lemon zest",
-            category: "Category",
-            price: 'Rs 400'
+            description:"Ricotta, goat cheese, beetroot and datterini.",
+            category: "Starter",
+            price: 'Rs 200'
           },
           {
             name: "Matcha latte",
@@ -69,11 +69,11 @@
             price: 'Rs 400'
           },
           {
-            name: 'Spaghetti',
+            name: 'Fresh Oysters Dozen',
             img: '/storage/homepage/menu/spaghetti.jpg',
-            description:"Lamb loin, white wine, lemon juice, garlic, lemon zest",
-            category: "Category",
-            price: 'Rs 400'
+            description:"Our selection of fresh oysters, limes.",
+            category: "Starter",
+            price: 'Rs 380'
           },
           {
             name: 'Matcha',
@@ -83,11 +83,11 @@
             price: 'Rs 400'
           },
           {
-          name: 'Chocolate Cake',
+          name: 'Banana Bash',
           img: '/storage/homepage/menu/chocolate-cake.jpg',
-          description:"Lamb loin, white wine, lemon juice, garlic, lemon zest",
-          category: "Category",
-          price: 'Rs 400'
+          description: "Soft chocolate chip cake filled with flavorful banana pudding, topped with custard filled cream puffs.",
+          category: "Dessert",
+          price: 'Rs 750'
           },
           {
           name: 'Momo',
