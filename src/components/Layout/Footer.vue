@@ -41,9 +41,9 @@
               <li class="nav-item">
                   <router-link :to="{ name: 'about' }" class="nav-link">About</router-link>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                   <router-link :to="{ name: 'menus' }" class="nav-link">Contact</router-link>
-              </li>
+              </li> -->
             </ul>
           </div> 
 
